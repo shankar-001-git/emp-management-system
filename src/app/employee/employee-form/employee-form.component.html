@@ -1,0 +1,53 @@
+<div class="form-container">
+    <h1>Add New Employee</h1>
+  
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <!-- Employee Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Enter employee name"
+        />
+        <small *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
+          Name is required (min 3 characters).
+        </small>
+      </div>
+  
+      <!-- Designation -->
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        <input
+          id="designation"
+          type="text"
+          formControlName="designation"
+          placeholder="Enter designation"
+        />
+        <small *ngIf="employeeForm.get('designation')?.invalid && employeeForm.get('designation')?.touched">
+          Designation is required.
+        </small>
+      </div>
+  
+      <!-- Department -->
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select id="department" formControlName="department">
+          <option value="" disabled>Select department</option>
+          <option value="IT">IT</option>
+          <option value="Operations">Operations</option>
+          <option value="Human Resources">Human Resources</option>
+        </select>
+        <small *ngIf="employeeForm.get('department')?.invalid && employeeForm.get('department')?.touched">
+          Department is required.
+        </small>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button type="submit" [disabled]="employeeForm.invalid">Add Employee</button>
+      </div>
+    </form>
+  </div>
+  

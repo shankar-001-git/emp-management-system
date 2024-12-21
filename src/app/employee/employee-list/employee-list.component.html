@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Employee List</h1>
+  
+    <!-- Check if employees exist -->
+    <div *ngIf="employees.length > 0; else noEmployees">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Department</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.designation }}</td>
+            <td>{{ employee.department }}</td>
+            <td>
+              <!-- Edit Button -->
+              <!-- <button (click)="editEmployee(employee.id)">Edit</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- No employees message -->
+    <ng-template #noEmployees>
+      <p>No employees found.</p>
+    </ng-template>
+  </div>
+  
